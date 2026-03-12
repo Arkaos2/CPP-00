@@ -3,12 +3,11 @@
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 
-PhoneBook::PhoneBook(){
+PhoneBook::PhoneBook() : _index(0) {}
+
+PhoneBook::~PhoneBook(){
 
 }
-
-
-
 
 void PhoneBook::search_contact()
 {
@@ -16,37 +15,20 @@ void PhoneBook::search_contact()
 
 	while(i < _nb_contact || i < 8)
 	{
-		std::cout << i + 1 << "         " << '|' << _repertoire[i].get_nom();
-		std::cout << i +<< "         " << '|' << _repertoire[i].get_nom();
-		std::cout << i + 1 << "         " << '|' << _repertoire[i].get_nom();
-		std::cout << i + 1 << "         " << '|' << _repertoire[i].get_nom();
-
-
-
-
+		std::cout << i + 1 << "         " << '|' << _repertoire[i].get_prenom();
+		std::cout <<'|' << _repertoire[i].get_nom();
+		std::cout <<'|' << _repertoire[i].get_surnom();
 	}
 }
 
 void PhoneBook::add_contact()
 {
 	int i = 0;
-	std::string info[5];
+	std::string info[6];
 
-	while(i < 5)
+	while(i < 6)
 	{
-		std::cout << " : ";
 		std::getline(std::cin, info[i]);
-		if(i == 4)
-		{
-			for (int j = 0; j < info[i].size(); j++)
-			{
-				if(!isdigit(info[i][j]))
-				{
-					std::cout << "Numero Imposible" << std::endl;
-					continue;
-				}
-			}
-		}
 		i++;
 	}
 	_nb_contact++;
